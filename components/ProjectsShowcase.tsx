@@ -1,23 +1,16 @@
-import FeaturedProjectCard from "./FeaturedProjectCard";
 import ProjectGrid from "./ProjectGrid";
 import type { Project } from "@/data/projects";
 
 /**
- * Composes the featured project (larger, full-width) above a grid of the
- * remaining standard cards. Shared by the homepage Projects section and the
- * /projects page so both stay in sync from the same data.
+ * Renders all selected projects with equal visual weight.
+ * Shared by the homepage Projects section and the /projects page.
  */
 export default function ProjectsShowcase({
-  featured,
-  others,
+  projects,
 }: {
-  featured?: Project;
-  others: Project[];
+  projects: Project[];
 }) {
-  return (
-    <div className="space-y-6">
-      {featured && <FeaturedProjectCard project={featured} />}
-      {others.length > 0 && <ProjectGrid projects={others} />}
-    </div>
-  );
+  if (projects.length === 0) return null;
+
+  return <ProjectGrid projects={projects} />;
 }

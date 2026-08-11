@@ -63,10 +63,10 @@ export default function Footer() {
           <h2 className="mx-auto mt-3 max-w-2xl font-heading text-3xl font-bold tracking-tight sm:text-4xl">
             Let&apos;s build something together.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            I&apos;m currently looking for Software Engineering and AI/ML
-            internships. My inbox is always open &mdash; feel free to reach out.
-          </p>
+            <p className="mx-auto mt-4 max-w-xl text-muted">
+              I&apos;m currently looking for software engineering internships.
+              My inbox is always open &mdash; feel free to reach out.
+            </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {contactButtons.map(({ label, href, Icon, primary }) => (
@@ -93,7 +93,7 @@ export default function Footer() {
       <div className="border-t border-border-subtle">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-8 sm:flex-row sm:px-8">
           <a
-            href="#home"
+            href="#about"
             className="font-heading text-lg font-bold tracking-tight text-foreground"
           >
             {siteConfig.name}

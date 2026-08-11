@@ -11,25 +11,29 @@ const roboto = Roboto({
 });
 
 const description =
-  "Computer Science portfolio featuring AI applications, backend systems, machine learning infrastructure, open-source work, and research.";
+  "Software engineering portfolio featuring backend systems, real-time applications, cloud infrastructure, full-stack development, open-source work, and applied AI.";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.fullName} — Software & AI Engineer`,
+    default: `${siteConfig.fullName} — Software Engineer`,
     template: `%s | ${siteConfig.name}`,
   },
   description,
   keywords: [
     siteConfig.fullName,
     "Software Engineer",
-    "AI Engineer",
-    "Machine Learning",
-    "ML Infrastructure",
+    "Backend Engineer",
+    "Full-Stack Engineer",
+    "Cloud Infrastructure",
+    "Distributed Systems",
     "Computer Science",
+    "Open Source",
+    "Applied AI",
     "Portfolio",
   ],
   authors: [{ name: siteConfig.fullName }],
   creator: siteConfig.fullName,
+
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -37,11 +41,13 @@ export const metadata: Metadata = {
     description,
     siteName: `${siteConfig.fullName} Portfolio`,
   },
+
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.fullName} — Software& AI Engineer`,
+    title: `${siteConfig.fullName} — Software Engineer`,
     description,
   },
+
   icons: {
     icon: "/favicon.ico",
   },

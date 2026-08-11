@@ -5,11 +5,11 @@ import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight,
   Award,
-  BrainCircuit,
+  CloudCog,
   FileText,
   GitPullRequest,
   Mail,
-  Server,
+  PanelsTopLeft,
 } from "lucide-react";
 import { Github, Linkedin } from "./icons";
 import { siteConfig } from "@/lib/config";
@@ -44,23 +44,23 @@ const reveal: Variants = {
 const highlights = [
   {
     Icon: Award,
-    label: "4.0 CGPA",
-    detail: "Consistent academic standing",
+    label: "4.0 GPA",
+    detail: "Strong computer science foundation",
   },
   {
-    Icon: BrainCircuit,
-    label: "AI / ML Projects",
-    detail: "From research to deployment",
+    Icon: PanelsTopLeft,
+    label: "Full-Stack Systems",
+    detail: "Building products across frontend and backend",
   },
   {
-    Icon: Server,
-    label: "Backend Systems",
-    detail: "Scalable, reliable services",
+    Icon: CloudCog,
+    label: "Cloud & Infrastructure",
+    detail: "Docker, Kubernetes, APIs, and scalable services",
   },
   {
     Icon: GitPullRequest,
     label: "Open Source",
-    detail: "Contributing in the open",
+    detail: "Debugging, testing, and contributing in the open",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Hero() {
             </h1>
 
             <p className="mx-auto mt-3 inline-flex border border-border-subtle bg-background/60 px-3 py-1.5 text-xs text-muted">
-              Student - Aspiring Software Engineer
+              Student · Software Engineer
             </p>
           </div>
 
@@ -182,45 +182,49 @@ export default function Hero() {
                 About
               </p>
 
-              <h2 className="mt-3 max-w-2xl font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-                Turning curiosity into systems that matter.
+              <h2 className="mt-3 max-w-3xl font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Building reliable software from backend systems to real-time
+                products.
               </h2>
 
               <div className="mt-4 h-px w-12 bg-accent-to" />
             </div>
 
-            {/* Existing About copy */}
+            {/* About copy */}
             <div className="mt-7 max-w-3xl space-y-5 text-base leading-relaxed text-muted">
               <p>
-                I&apos;m a Computer Science student working toward my
-                Bachelor&apos;s degree, drawn to the space where artificial
-                intelligence meets thoughtful software engineering. What keeps
-                me up at night isn&apos;t just getting a model to work — it&apos;s
-                making it reliable, scalable, and genuinely useful to the
-                people on the other end.
+                I&apos;m a Computer Science student focused on software
+                engineering across backend systems, full-stack applications,
+                and cloud infrastructure. I enjoy taking ideas beyond the
+                prototype stage and turning them into reliable products with
+                clean APIs, thoughtful data models, and systems that hold up
+                under real use.
               </p>
 
               <p>
-                Along the way I&apos;ve kept a{" "}
-                <span className="font-medium text-foreground">4.0 CGPA</span>{" "}
-                while building real AI/ML projects, designing backend systems
-                that hold up under load, and contributing to open source
-                because I believe the best way to learn is to build in the
-                open.
+                I&apos;ve maintained a{" "}
+                <span className="font-medium text-foreground">4.0 GPA</span>{" "}
+                while building real-time applications, scalable backend
+                services, containerized infrastructure, and open-source
+                contributions. My projects span technologies like Python,
+                Java, TypeScript, PostgreSQL, Docker, Kubernetes, WebSockets,
+                and modern web frameworks.
               </p>
 
               <p>
-                Whether I&apos;m training a model, debugging a distributed
-                service, or sending a pull request to a project I admire, I
-                care about the details that turn a prototype into something
-                people can trust.
+                I also bring experience with AI and machine learning, which I
+                use as an additional engineering tool rather than the center of
+                everything I build. Whether I&apos;m debugging a distributed
+                service, designing an API, or integrating an intelligent
+                feature into a product, I care about building software that is
+                useful, maintainable, and dependable.
               </p>
             </div>
 
             {/* What I'm doing */}
             <div className="mt-12">
               <h3 className="font-heading text-2xl font-semibold text-foreground">
-                What I&apos;m Doing
+                What I&apos;m Building
               </h3>
 
               <motion.ul
@@ -283,7 +287,7 @@ export default function Hero() {
               </div>
 
               <p className="text-xs text-muted">
-                Software Engineering · AI Engineering
+                Backend · Full-Stack · Cloud & Systems
               </p>
             </div>
           </div>

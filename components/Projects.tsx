@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ProjectsShowcase from "./ProjectsShowcase";
-import { featuredProject, otherProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -18,14 +18,17 @@ export default function Projects() {
       >
         <div className="max-w-2xl">
           <p className="font-heading text-sm font-medium uppercase tracking-widest text-accent-to">
-            Featured Work
+            Selected Work
           </p>
+
           <h2 className="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-            Projects
+            Selected Projects
           </h2>
+
           <p className="mt-4 text-muted">
-            A selection of projects where I explore machine learning, backend
-            systems, and developer tooling.
+            Backend systems, real-time applications, cloud infrastructure, and
+            intelligent products built with an emphasis on reliability and
+            practical engineering.
           </p>
         </div>
 
@@ -42,10 +45,7 @@ export default function Projects() {
       </motion.div>
 
       <div className="mt-12">
-        <ProjectsShowcase
-          featured={featuredProject}
-          others={otherProjects}
-        />
+        <ProjectsShowcase projects={projects} />
       </div>
     </section>
   );
