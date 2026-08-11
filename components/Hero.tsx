@@ -212,12 +212,10 @@ export default function Hero() {
               </p>
 
               <p>
-                I also bring experience with AI and machine learning, which I
-                use as an additional engineering tool rather than the center of
-                everything I build. Whether I&apos;m debugging a distributed
-                service, designing an API, or integrating an intelligent
-                feature into a product, I care about building software that is
-                useful, maintainable, and dependable.
+              I also work with AI and machine learning, bringing intelligent features
+              into products when they solve a meaningful problem. I enjoy taking ideas
+              from prototype to deployment with an emphasis on clean architecture,
+              maintainability, and real-world use.
               </p>
             </div>
 
