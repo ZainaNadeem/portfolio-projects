@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Theme tokens (Tailwind v4 CSS-first config)
+   Dark by design — inspired by Vercel / Linear aesthetics.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-background: #0a0a0a;
+  --color-card: #171717;
+  --color-border-subtle: #1e1e1e;
+  --color-foreground: #ededed;
+  --color-muted: #a1a1aa;
+
+  /* --color-accent-from: #3b82f6; /* blue-500 */
+  /*--color-accent-to: #8b5cf6; violet-500 */
+
+  /*Soft Pink Gradient*/
+  /*--color-accent-from: #f43f5e; /* rose-500 */
+  /*--color-accent-to: #d946ef; /* fuchsia-500 */
+
+  /*Hot Pink Gradient*/
+  /*--color-accent-from: #d946ef; /* fuchsia-500 */
+  /*--color-accent-to: #ec4899; /* pink-500 */
+
+    --color-accent-from: #d4af37; /* gold */
+  --color-accent-to: #f5c542; /* gold */
+
+  /*Lavender to Pink*/
+  /*--color-accent-from: #c084fc; /* purple-300 */
+  /*--color-accent-to: #f9a8d4; /* pink-300 */
+
+
+
+  /*--font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;*/
+  /*--font-heading: var(--font-space-grotesk), var(--font-inter), sans-serif;*/
+    --font-heading: var(--font-roboto), sans-serif;
+    --font-sans: var(--font-roboto), sans-serif;
+
+
+
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  /* offset for the fixed navbar when jumping to anchors */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.6;
+}
+.card {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.card {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent-to) 40%, transparent);
+  color: #ffffff;
+}
+
+/* Custom scrollbar (WebKit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 9999px;
+  border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+--------------------------------------------------------------------------- */
+.gradient-text {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-accent-from),
+    var(--color-accent-to)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle animated aurora used in the hero background */
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(0, -4%, 0) scale(1.1);
+    opacity: 0.9;
+  }
+}
+.animate-aurora {
+  animation: aurora 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-aurora {
+    animation: none;
+  }
+}
