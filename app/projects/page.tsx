@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ProjectsShowcase from "@/components/ProjectsShowcase";
+import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
 import { siteConfig } from "@/lib/config";
 
 const description =
-  "A collection of software engineering projects across backend systems, real-time applications, cloud infrastructure, and applied AI.";
+  "A collection of engineering projects across backend systems, real-time applications, cloud infrastructure, product development, and applied AI.";
 
 export const metadata: Metadata = {
   title: `Projects | ${siteConfig.name}`,
@@ -27,29 +26,28 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <Navbar />
-
-      <main className="flex-1">
-        <section className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
+      <main className="min-h-screen bg-background">
+        <section className="mx-auto w-full max-w-[1120px] px-6 py-14 sm:px-8 lg:py-16">
           <Reveal className="max-w-2xl">
-            <p className="font-heading text-sm font-medium uppercase tracking-widest text-accent-to">
-              Selected Work
-            </p>
-
-            <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight sm:text-5xl">
-              Selected Projects
+            <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+              Selected Engineering Projects
             </h1>
 
-            <p className="mt-4 text-muted">
-              Backend systems, real-time applications, cloud infrastructure,
-              and intelligent products. Open any project to explore the
-              engineering decisions, architecture, challenges, and results
-              behind it.
+            <p className="mt-4 text-sm leading-6 text-muted sm:text-base">
+              Engineering work across backend systems, real-time applications,
+              cloud infrastructure, product development, and applied AI. Open
+              any project to explore the architecture, technical decisions,
+              challenges, and results behind it.
             </p>
           </Reveal>
 
-          <div className="mt-12">
-            <ProjectsShowcase projects={projects} />
+          <div className="mt-10 space-y-2">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.slug}
+                project={project}
+              />
+            ))}
           </div>
         </section>
       </main>

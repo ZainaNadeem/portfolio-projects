@@ -2,19 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Github } from "./icons";
 import type { Project } from "@/data/projects";
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
 
 export default function ProjectCard({ project }: { project: Project }) {
   const {
@@ -26,117 +16,124 @@ export default function ProjectCard({ project }: { project: Project }) {
     github,
     demo,
     coverImage,
-    badge,
+    results,
+    architecture,
   } = project;
 
+  const architectureNodes =
+    architecture?.[0]?.layers.flatMap((layer) => layer.nodes) ?? [];
+
   return (
-    <motion.article
-      variants={cardVariants}
-      whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 280, damping: 24 }}
-      className="group relative flex h-full flex-col overflow-hidden border border-border-subtle bg-card transition-colors hover:border-white/20"
-    >
-      {/* Visual */}
-      <Link
-        href={`/projects/${slug}`}
-        className="relative block aspect-[16/10] overflow-hidden border-b border-border-subtle bg-background"
-      >
-        {coverImage ? (
-          <Image
-            src={coverImage}
-            alt={`${title} project preview`}
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        ) : (
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-            {/* subtle grid background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:32px_32px]" />
+    <article className="pb-12">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-[240px_minmax(0,1fr)] sm:items-start sm:gap-6">
+        {/* LEFT VISUAL */}
+        <Link
+          href={`/projects/${slug}`}
+          className="block w-full overflow-hidden bg-card"
+        >
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-background">
+            {coverImage ? (
+              <Image
+                src={coverImage}
+                alt={`${title} project preview`}
+                fill
+                sizes="240px"
+                className="object-cover"
+              />
+            ) : (
+              <div className="relative flex h-full flex-col justify-center overflow-hidden p-4">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:22px_22px]"
+                />
 
-            {/* subtle atmosphere */}
-            <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-to/[0.08] blur-[70px]" />
+                <div className="relative">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-accent-to">
+                    Architecture
+                  </p>
 
-            <div className="relative px-6 text-center">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-to">
-                {category}
-              </p>
-
-              <p className="mt-3 font-heading text-xl font-semibold text-foreground">
-                {title}
-              </p>
-            </div>
+                  <div className="mt-3 space-y-2">
+                    {architectureNodes.slice(0, 4).map((node, index) => (
+                      <div
+                        key={`${node.label}-${index}`}
+                        className="border border-border-subtle bg-background/90 px-2.5 py-2"
+                      >
+                        <p className="truncate text-[10px] font-medium text-foreground">
+                          {node.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+        </Link>
 
-        <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-      </Link>
-
-      {/* Content */}
-      <div className="flex flex-1 flex-col p-6">
-        {/* Category + badge */}
-        <div className="flex items-center justify-between gap-3">
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-accent-to">
-            {category}
-          </span>
-
-          {badge && (
-            <span className="border border-accent-to/30 bg-accent-to/10 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-accent-to">
-              {badge}
-            </span>
-          )}
-        </div>
-
-        {/* Title */}
-        <h3 className="mt-3 font-heading text-xl font-semibold leading-snug text-foreground">
-          <Link
-            href={`/projects/${slug}`}
-            className="transition-colors hover:text-white"
-          >
-            {title}
-          </Link>
-        </h3>
-
-        {/* Description */}
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          {description}
-        </p>
-
-        {/* Tech */}
-        <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2">
-          {technologies.slice(0, 5).map((tech) => (
-            <span
-              key={tech}
-              className="text-xs text-muted"
+        {/* RIGHT CONTENT */}
+        <div className="min-w-0">
+          <h3 className="font-heading text-[1.35rem] font-bold leading-tight text-foreground">
+            <Link
+              href={`/projects/${slug}`}
+              className="transition-colors hover:text-white"
             >
-              {tech}
-            </span>
-          ))}
-        </div>
+              {title}
+            </Link>
+          </h3>
 
-        {/* Actions */}
-        <div className="mt-auto flex items-center gap-4 pt-7">
-          <Link
-            href={`/projects/${slug}`}
-            className="group/link inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-white"
-          >
-            View Project
-            <ArrowRight
-              size={15}
-              className="transition-transform group-hover/link:translate-x-1"
-            />
-          </Link>
+          <p className="mt-1 text-[13px] italic text-muted">
+            {category}
+          </p>
 
-          <div className="ml-auto flex items-center gap-3">
+          <p className="mt-3 text-[13px] leading-[1.7] text-muted">
+            {description}
+          </p>
+
+          {results && results.length > 0 && (
+            <div className="mt-3 space-y-1.5">
+              {results.slice(0, 2).map((result) => (
+                <p
+                  key={result}
+                  className="text-[13px] leading-[1.6] text-foreground/85"
+                >
+                  {result}
+                </p>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
+            {technologies.slice(0, 6).map((tech, index) => (
+              <span
+                key={tech}
+                className="text-[11px] text-muted"
+              >
+                {tech}
+
+                {index < Math.min(technologies.length, 6) - 1 && (
+                  <span className="ml-2 text-border-subtle">·</span>
+                )}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <Link
+              href={`/projects/${slug}`}
+              className="text-[13px] font-medium text-accent-to transition-colors hover:text-foreground"
+            >
+              Project Details
+            </Link>
+
             {github && (
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${title} on GitHub`}
-                className="text-muted transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-1.5 text-[13px] text-accent-to transition-colors hover:text-foreground"
               >
-                <Github size={17} />
+                <Github size={13} />
+                GitHub
               </a>
             )}
 
@@ -145,15 +142,15 @@ export default function ProjectCard({ project }: { project: Project }) {
                 href={demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${title} live demo`}
-                className="text-muted transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-1.5 text-[13px] text-accent-to transition-colors hover:text-foreground"
               >
-                <ExternalLink size={17} />
+                <ExternalLink size={13} />
+                Demo
               </a>
             )}
           </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }
