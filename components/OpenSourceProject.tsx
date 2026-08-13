@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { Github } from "./icons";
 import type { OpenSourceContribution } from "@/data/openSource";
@@ -19,34 +18,51 @@ export default function OpenSourceProject({
             aria-hidden="true"
             className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:22px_22px]"
           />
-
-          <div className="relative flex h-full flex-col justify-center p-4">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-accent-to">
+            <div className="relative flex h-full -translate-y-2 flex-col justify-center px-4 py-2">
+            <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-accent-to">
               Open Source Contribution
             </p>
 
-            <div className="mt-4 space-y-2">
-              <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                <p className="text-[10px] text-muted">Issue</p>
-                <p className="mt-0.5 text-xs font-medium text-foreground">
+            <div className="mt-1.5 space-y-0.5">
+              {/* Issue */}
+              <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                <p className="text-[8px] leading-tight text-muted">
+                  Issue
+                </p>
+
+                <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
                   Stale embeddings
                 </p>
               </div>
 
-              <div className="text-center text-xs text-accent-to">↓</div>
+              {/* Arrow */}
+              <div className="text-center text-[9px] leading-none text-accent-to">
+                ↓
+              </div>
 
-              <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                <p className="text-[10px] text-muted">Fix</p>
-                <p className="mt-0.5 text-xs font-medium text-foreground">
+              {/* Fix */}
+              <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                <p className="text-[8px] leading-tight text-muted">
+                  Fix
+                </p>
+
+                <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
                   Vector deletion filter
                 </p>
               </div>
 
-              <div className="text-center text-xs text-accent-to">↓</div>
+              {/* Arrow */}
+              <div className="text-center text-[9px] leading-none text-accent-to">
+                ↓
+              </div>
 
-              <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                <p className="text-[10px] text-muted">Validation</p>
-                <p className="mt-0.5 text-xs font-medium text-foreground">
+              {/* Validation */}
+              <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                <p className="text-[8px] leading-tight text-muted">
+                  Validation
+                </p>
+
+                <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
                   10 / 10 tests
                 </p>
               </div>
@@ -87,6 +103,7 @@ export default function OpenSourceProject({
             {contribution.technologies.map((tech, index) => (
               <span key={tech} className="text-xs text-muted">
                 {tech}
+
                 {index < contribution.technologies.length - 1 && (
                   <span className="ml-2 text-border-subtle">·</span>
                 )}

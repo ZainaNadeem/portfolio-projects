@@ -77,7 +77,7 @@ export const projects: Project[] = [
     title: "Disaster Relief Coordination Platform",
     category: "Real-Time Systems",
     description:
-      "A real-time coordination platform for managing disaster incidents, volunteer tasks, and relief resources through live maps, WebSockets, and role-based workflows.",
+      "A real-time disaster response platform designed to coordinate volunteers, resources, and emergency requests more efficiently. I built the system with a Node.js and PostgreSQL backend, using WebSockets to propagate live updates as incidents, volunteer availability, and resource assignments change. An interactive Mapbox interface provides a geographic view of active requests and supports proximity-based volunteer assignment. I also designed backend safeguards to prevent duplicate dispatches during concurrent requests and validated the system through stress testing. In testing, the resulting workflow reduced simulated dispatch time from 8 minutes to 45 seconds while eliminating duplicate assignments.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -173,7 +173,7 @@ export const projects: Project[] = [
     title: "Scalable Inference Infrastructure",
     category: "Cloud Infrastructure",
     description:
-      "Production-style model-serving infrastructure built with FastAPI, Docker, and Kubernetes, including autoscaling, health checks, rolling deployments, and automated rollback.",
+      "A production-oriented machine-learning inference system focused on the infrastructure required to serve models reliably rather than model training itself. I packaged a DistilBERT sentiment service behind FastAPI, built it into a multi-stage Docker image, and deployed it to Kubernetes with three replicas behind a LoadBalancer. The deployment includes liveness and readiness probes, resource limits, zero-downtime rolling updates, and Horizontal Pod Autoscaling from three to ten pods. I also built a Bash deployment workflow that automates image creation, deployment, health verification, and rollback, removing the manual steps normally required to release the service.",
     technologies: [
       "Python",
       "FastAPI",
@@ -382,7 +382,7 @@ export const projects: Project[] = [
     title: "Shopify-Lite",
     category: "Backend Engineering",
     description:
-      "An e-commerce backend with product and inventory APIs, Redis-backed carts and caching, PostgreSQL persistence, and Stripe payment processing.",
+      "A production-style e-commerce backend implementing the core systems behind product browsing, inventory management, shopping carts, checkout, and payment confirmation. I built REST APIs with FastAPI and PostgreSQL, used Redis for frequently accessed product data and temporary carts, and integrated Stripe PaymentIntents and webhooks for asynchronous checkout confirmation. The architecture keeps PostgreSQL as the durable source of truth while using Redis to accelerate high-frequency operations and manage short-lived cart state. The caching layer reduced database queries by 60% and delivered sub-50ms responses for frequently accessed cached data.",
     technologies: [
       "Python",
       "FastAPI",
@@ -477,7 +477,7 @@ export const projects: Project[] = [
     title: "URL Shortener with Analytics",
     category: "Backend Systems",
     description:
-      "A Spring Boot URL-shortening service with Redis-backed redirects, MySQL analytics, custom expiration, and low-latency lookup paths.",
+      "A backend URL-shortening service designed around a fast redirect path while keeping analytics and persistent metadata separate from latency-sensitive lookups. I built the service with Spring Boot and MySQL, added Redis caching for frequently accessed short-code mappings, and implemented unique short-code generation, expiration controls, and REST endpoints for usage analytics. Click metadata such as timestamps, referrers, and user locations is stored independently from cached redirect resolution. This architecture delivered redirect responses under 10ms for 95% of cached requests while preserving persistent analytics for shortened links.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -526,7 +526,7 @@ export const projects: Project[] = [
     title: "AuraRun",
     category: "Product Engineering",
     description:
-      "A creative data pipeline that turns Strava run biometrics into generated artwork using deterministic mapping rules, Stable Diffusion, FastAPI, and MLflow.",
+      "A generative application that transforms structured fitness activity data into visual artwork. I built a pipeline that retrieves Strava activities and maps heart rate, pace, elevation, and time of day into deterministic aesthetic descriptors before constructing prompts for Stable Diffusion. The generation system supports CUDA, Apple MPS, and CPU execution, while MLflow records prompts, parameters, timing, scores, and generated artifacts for each experiment. I exposed the workflow through FastAPI and built a Streamlit gallery for exploring generated results. The project's mapping logic is boundary-tested with pytest, with all 18 automated tests currently passing.",
     technologies: [
       "Python",
       "FastAPI",
@@ -659,7 +659,7 @@ export const projects: Project[] = [
     title: "AccessMap",
     category: "ML Engineering",
     description:
-      "An accessibility modeling and retrieval system combining geospatial data, Random Forest models, ModernBERT embeddings, FAISS search, and a deployed Streamlit application.",
+      "An accessibility-focused machine-learning and semantic-retrieval system built to investigate what sidewalk and infrastructure data can reliably reveal about real-world accessibility. I developed workflows spanning data cleaning, feature engineering, Random Forest modeling, ModernBERT embeddings, FAISS retrieval, bias analysis, and Streamlit deployment across two accessibility datasets. The system includes semantic retrieval over 6,425 embedded records and three user-facing workflows. A key part of the project was evaluating model limitations directly: the analysis identified geographic feature dependence and distinguished pipeline consistency from genuinely predictive model performance rather than relying on headline accuracy alone.",
     technologies: [
       "Python",
       "scikit-learn",

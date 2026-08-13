@@ -89,18 +89,6 @@ export default function ProjectCard({ project }: { project: Project }) {
             {description}
           </p>
 
-          {results && results.length > 0 && (
-            <div className="mt-3 space-y-1.5">
-              {results.slice(0, 2).map((result) => (
-                <p
-                  key={result}
-                  className="text-[13px] leading-[1.6] text-foreground/85"
-                >
-                  {result}
-                </p>
-              ))}
-            </div>
-          )}
 
           <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1">
             {technologies.slice(0, 6).map((tech, index) => (

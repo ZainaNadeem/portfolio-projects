@@ -39,7 +39,7 @@ export default function Hero() {
         </p>
 
         <p className="mt-2 text-xs text-muted">
-          Open to internships
+          Open to internships 
         </p>
       </div>
 
@@ -50,9 +50,9 @@ export default function Hero() {
         </h2>
 
         <p className="mt-3 text-sm leading-[1.7] text-muted">
-          Computer Science student focused on software engineering, backend
-          systems, full-stack development, cloud infrastructure, and applied
-          AI. I enjoy building reliable systems and taking projects from
+          Focused on software engineering, backend
+          systems, full-stack development, cloud infrastructure. I bring intelligent features into products when they solve 
+          a meaningful problem. I enjoy building reliable systems and taking projects from
           implementation through deployment.
         </p>
       </div>

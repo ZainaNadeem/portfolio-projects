@@ -23,46 +23,65 @@ export default function IndustryProject({
                 className="object-cover"
               />
             ) : (
-              <div className="relative flex h-full flex-col justify-center p-4">
+              <>
+                {/* Background grid */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff06_1px,transparent_1px),linear-gradient(to_bottom,#ffffff06_1px,transparent_1px)] bg-[size:22px_22px]"
                 />
 
-                <div className="relative">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-accent-to">
+                {/* Compact workflow */}
+                <div className="relative flex h-full -translate-y-2 flex-col justify-center px-4 py-2">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-accent-to">
                     Safety Analysis
                   </p>
 
-                  <div className="mt-4 space-y-2">
-                    <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                      <p className="text-[10px] text-muted">
+                  <div className="mt-1.5 space-y-0.5">
+                    {/* Input */}
+                    <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                      <p className="text-[8px] leading-tight text-muted">
+                        Input
+                      </p>
+
+                      <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
                         ESD Data
                       </p>
                     </div>
 
-                    <div className="text-center text-xs text-accent-to">
+                    {/* Arrow */}
+                    <div className="text-center text-[9px] leading-none text-accent-to">
                       ↓
                     </div>
 
-                    <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                      <p className="text-[10px] text-muted">
-                        Statistical + ML Analysis
+                    {/* Analysis */}
+                    <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                      <p className="text-[8px] leading-tight text-muted">
+                        Analysis
+                      </p>
+
+                      <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
+                        Statistical + ML
                       </p>
                     </div>
 
-                    <div className="text-center text-xs text-accent-to">
+                    {/* Arrow */}
+                    <div className="text-center text-[9px] leading-none text-accent-to">
                       ↓
                     </div>
 
-                    <div className="border border-border-subtle bg-background/90 px-3 py-2">
-                      <p className="text-[10px] text-muted">
+                    {/* Output */}
+                    <div className="border border-border-subtle bg-background/90 px-2.5 py-1">
+                      <p className="text-[8px] leading-tight text-muted">
+                        Output
+                      </p>
+
+                      <p className="mt-0.5 text-[10px] font-medium leading-tight text-foreground">
                         Risk Factors
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </>
             )}
           </div>
         </div>
