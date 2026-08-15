@@ -1,5 +1,4 @@
-// Central place to edit your personal info, links, navigation, and skills.
-// Update these values and the whole site stays in sync.
+// Central place to edit personal information, links, navigation, and skills.
 
 export type NavLink = {
   label: string;
@@ -17,6 +16,7 @@ export const siteConfig = {
   role: "Software Engineer",
   email: "zaina.nadem@gmail.com",
   resumeUrl: "/resume.pdf",
+
   socials: {
     github: "https://github.com/ZainaNadeem",
     linkedin: "https://www.linkedin.com/in/zainanadeem",
@@ -26,7 +26,8 @@ export const siteConfig = {
 export const navLinks: NavLink[] = [
   { label: "About", href: "/#about" },
   { label: "Projects", href: "/#projects" },
-  { label: "Experience", href: "/#experience" },
+  { label: "Industry", href: "/#industry-projects" },
+  { label: "Open Source", href: "/#open-source" },
   { label: "Research", href: "/#research" },
 ];
 
@@ -62,13 +63,13 @@ export const skillCategories: SkillCategory[] = [
     category: "Data",
     skills: ["PostgreSQL", "MySQL", "Redis"],
   },
- {
-  category: "AI / ML",
-  skills: [
-    "PyTorch",
-    "TensorFlow",
-    "Hugging Face",
-    "FAISS",
-  ],
-},
+  {
+    category: "AI / ML",
+    skills: [
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face",
+      "FAISS",
+    ],
+  },
 ];

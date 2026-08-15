@@ -11,40 +11,49 @@ const roboto = Roboto({
 });
 
 const description =
-  "Software engineering portfolio featuring backend systems, real-time applications, cloud infrastructure, full-stack development, open-source work, and applied AI.";
+  "Engineering portfolio featuring real-time systems, backend development, cloud infrastructure, open-source contributions, applied AI, and machine learning research.";
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.fullName} — Software Engineer`,
-    template: `%s | ${siteConfig.name}`,
+    default: `${siteConfig.fullName} — Software Engineering Portfolio`,
+    template: `%s | ${siteConfig.fullName}`,
   },
+
   description,
+
   keywords: [
     siteConfig.fullName,
-    "Software Engineer",
-    "Backend Engineer",
-    "Full-Stack Engineer",
+    "Software Engineering",
+    "Backend Engineering",
+    "Full-Stack Development",
     "Cloud Infrastructure",
-    "Distributed Systems",
-    "Computer Science",
+    "Real-Time Systems",
     "Open Source",
     "Applied AI",
-    "Portfolio",
+    "Machine Learning",
+    "Computer Science",
+    "Engineering Portfolio",
   ],
-  authors: [{ name: siteConfig.fullName }],
+
+  authors: [
+    {
+      name: siteConfig.fullName,
+    },
+  ],
+
   creator: siteConfig.fullName,
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: `${siteConfig.fullName} — Software Engineer`,
+    title: `${siteConfig.fullName} — Software Engineering Portfolio`,
     description,
     siteName: `${siteConfig.fullName} Portfolio`,
   },
 
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.fullName} — Software Engineer`,
+    title: `${siteConfig.fullName} — Software Engineering Portfolio`,
     description,
   },
 
@@ -59,8 +68,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html
+      lang="en"
+      className={`${roboto.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-background text-foreground">
         {children}
       </body>
     </html>

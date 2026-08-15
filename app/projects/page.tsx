@@ -3,22 +3,23 @@ import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/data/projects";
-import { siteConfig } from "@/lib/config";
 
 const description =
-  "A collection of engineering projects across backend systems, real-time applications, cloud infrastructure, product development, and applied AI.";
+  "Engineering projects spanning backend systems, real-time applications, cloud infrastructure, product development, and applied AI.";
 
 export const metadata: Metadata = {
-  title: `Projects | ${siteConfig.name}`,
+  title: "Projects",
   description,
+
   openGraph: {
-    title: `Projects | ${siteConfig.name}`,
+    title: "Selected Engineering Projects",
     description,
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: `Projects | ${siteConfig.name}`,
+    title: "Selected Engineering Projects",
     description,
   },
 };
